@@ -1,0 +1,65 @@
+[2026-11-05 08:00:01] INFO: Server started successfully on port 8080.
+[2026-11-05 08:05:12] INFO: User 'admin' logged in successfully from IP 192.168.1.10.
+[2026-11-05 08:10:22] GET /index.html HTTP/1.1 - Status: 200 OK - User Agent: Mozilla/5.0
+[2026-11-05 08:12:40] GET /about.php HTTP/1.1 - Status: 200 OK - User Agent: Mozilla/5.0
+[2026-11-05 08:15:00] WARNING: Database connection latency increased to 450ms.
+[2026-11-05 08:20:11] POST /login.php HTTP/1.1 - User: root - Status: FAILED - Reason: Invalid Password.
+[2026-11-05 08:20:15] POST /login.php HTTP/1.1 - User: root - Status: FAILED - Reason: Invalid Password.
+[2026-11-05 08:20:18] POST /login.php HTTP/1.1 - User: root - Status: FAILED - Reason: Account Locked.
+[2026-11-05 08:25:33] GET /images/logo.png HTTP/1.1 - Status: 200 OK - User Agent: Chrome/90.0
+[2026-11-05 08:30:00] INFO: Routine backup initiated.
+[2026-11-05 08:31:05] INFO: Routine backup completed successfully.
+[2026-11-05 08:35:44] GET /admin/dashboard.php HTTP/1.1 - Status: 401 Unauthorized - Access Denied.
+[2026-11-05 08:40:12] GET /css/style.css HTTP/1.1 - Status: 200 OK - User Agent: Firefox/88.0
+[2026-11-05 08:45:50] GET /nonexistent_page.html HTTP/1.1 - Status: 404 Not Found - Broken Link.
+[2026-11-05 08:50:01] POST /api/v1/auth HTTP/1.1 - User: guest - Status: FAILED - Reason: Token Expired.
+[2026-11-05 08:55:20] GET /index.html?id=1' OR '1'='1 HTTP/1.1 - Status: 500 Internal Server Error - Potential SQLi.
+[2026-11-05 09:00:10] INFO: User 'younes' connected via SSH.
+[2026-11-05 09:05:30] GET /secret_backup.zip HTTP/1.1 - Status: 404 Not Found - Potential Reconnaissance.
+[2026-11-05 09:10:45] POST /login.php HTTP/1.1 - User: test_user - Status: FAILED - Reason: User not found.
+[2026-11-05 09:15:00] INFO: Firewall rule updated.
+[2026-11-05 09:20:11] GET /robots.txt HTTP/1.1 - Status: 200 OK - User Agent: Bot/1.0
+[2026-11-05 09:25:00] GET /wp-login.php HTTP/1.1 - Status: 404 Not Found - Brute Force Probe.
+[2026-11-05 09:30:15] GET /contact.html HTTP/1.1 - Status: 200 OK - User Agent: Safari/14.0
+[2026-11-05 09:35:22] POST /upload.php HTTP/1.1 - Status: 403 Forbidden - Unauthorized File Type.
+[2026-11-05 09:40:50] GET /old_index.php HTTP/1.1 - Status: 404 Not Found.
+[2026-11-05 09:45:10] POST /login.php HTTP/1.1 - User: supervisor - Status: FAILED - Reason: Wrong Credentials.
+[2026-11-05 09:50:00] INFO: System health check normal.
+[2026-11-05 09:55:12] GET /js/main.js HTTP/1.1 - Status: 200 OK - User Agent: Edge/91.0
+[2026-11-05 10:00:30] GET /phpmyadmin/index.php HTTP/1.1 - Status: 404 Not Found - Scanner Probe.
+[2026-11-05 10:05:40] POST /login.php HTTP/1.1 - User: api_bot - Status: FAILED - Reason: Rate Limit Exceeded.
+[2026-11-05 10:10:11] GET /favicon.ico HTTP/1.1 - Status: 200 OK - User Agent: Chrome/90.0
+[2026-11-05 10:15:20] GET /config.bak HTTP/1.1 - Status: 404 Not Found - Sensitive File Probe.
+[2026-11-05 10:20:00] INFO: Network interface reset.
+[2026-11-05 10:25:15] GET /index.php?q=<script>alert(1)</script> HTTP/1.1 - Status: 200 OK - Potential XSS.
+[2026-11-05 10:30:44] POST /login.php HTTP/1.1 - User: manager - Status: FAILED - Reason: Password Expired.
+[2026-11-05 10:35:10] GET /assets/css/main.css HTTP/1.1 - Status: 200 OK - User Agent: Firefox/88.0
+[2026-11-05 10:40:22] GET /.env HTTP/1.1 - Status: 404 Not Found - Credential Leak Probe.
+[2026-11-05 10:45:00] INFO: SSL certificate valid for 90 days.
+[2026-11-05 10:50:12] POST /login.php HTTP/1.1 - User: guest123 - Status: FAILED - Reason: Account Suspended.
+[2026-11-05 10:55:30] GET /missing_page_1.html HTTP/1.1 - Status: 404 Not Found.
+[2026-11-05 11:00:15] GET /index.html HTTP/1.1 - Status: 200 OK - User Agent: Safari/14.0
+[2026-11-05 11:05:20] GET /missing_page_2.html HTTP/1.1 - Status: 404 Not Found.
+[2026-11-05 11:10:00] INFO: User session cleared.
+[2026-11-05 11:15:45] POST /login.php HTTP/1.1 - User: admin - Status: FAILED - Reason: Invalid OTP.
+[2026-11-05 11:20:10] GET /missing_page_3.html HTTP/1.1 - Status: 404 Not Found.
+[2026-11-05 11:25:30] GET /images/banner.jpg HTTP/1.1 - Status: 200 OK - User Agent: Chrome/90.0
+[2026-11-05 11:30:11] GET /missing_page_4.html HTTP/1.1 - Status: 404 Not Found.
+[2026-11-05 11:35:00] INFO: Memory usage stable at 45%.
+[2026-11-05 11:40:22] POST /login.php HTTP/1.1 - User: test - Status: FAILED - Reason: Invalid Password.
+[2026-11-05 11:45:12] GET /missing_page_5.html HTTP/1.1 - Status: 404 Not Found.
+[2026-11-05 11:50:00] GET /home.html HTTP/1.1 - Status: 200 OK - User Agent: Firefox/88.0
+[2026-11-05 11:55:40] GET /missing_page_6.html HTTP/1.1 - Status: 404 Not Found.
+[2026-11-05 12:00:00] INFO: Lunch break system check completed.
+[2026-11-05 12:05:15] POST /login.php HTTP/1.1 - User: root - Status: FAILED - Reason: Too many attempts.
+[2026-11-05 12:10:20] GET /missing_page_7.html HTTP/1.1 - Status: 404 Not Found.
+[2026-11-05 12:15:33] GET /api/status HTTP/1.1 - Status: 200 OK - User Agent: MonitoringBot
+[2026-11-05 12:20:10] GET /missing_page_8.html HTTP/1.1 - Status: 404 Not Found.
+[2026-11-05 12:25:00] INFO: Cache cleared successfully.
+[2026-11-05 12:30:44] POST /login.php HTTP/1.1 - User: unknown - Status: FAILED - Reason: Blocked IP.
+[2026-11-05 12:35:12] GET /missing_page_9.html HTTP/1.1 - Status: 404 Not Found.
+[2026-11-05 12:40:00] GET /index.html HTTP/1.1 - Status: 200 OK - User Agent: Edge/91.0
+[2026-11-05 12:45:22] GET /missing_page_10.html HTTP/1.1 - Status: 404 Not Found.
+[2026-11-05 12:50:10] INFO: System running smoothly.
+[2026-11-05 12:55:05] POST /login.php HTTP/1.1 - User: hacker - Status: FAILED - Reason: IP Blacklisted.
+[2026-11-05 13:00:00] INFO: Shift change handoff completed.
