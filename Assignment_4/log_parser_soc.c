@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h> // مكتبة لدعم تحويل الأحرف
+#include <ctype.h>
 
-// دالة مساعدة لتحويل النص بالكامل إلى حروف صغيرة (Lowercase)
+
 void to_lower_string(char *dest, const char *src) {
     int i = 0;
     while (src[i] != '\0') {
@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
     char lower_line[512];
     char lower_keyword[256];
 
-    // تحويل كلمة البحث الأساسية إلى حروف صغيرة لتصبح غير حساسة للحالة
+    
     to_lower_string(lower_keyword, raw_keyword);
 
     int line_number = 0;
@@ -46,13 +46,13 @@ int main(int argc, char *argv[]) {
     while (fgets(line, sizeof(line), file) != NULL) {
         line_number++;
 
-        // تحويل السطر الحالي إلى حروف صغيرة لغرض المقارنة فقط
+        
         to_lower_string(lower_line, line);
 
-        // البحث عن الكلمة بغض النظر عن كونها كبيراً أو صغيراً
+        
         if (strstr(lower_line, lower_keyword) != NULL) {
             alert_count++;
-            // طباعة السطر الأصلي كما هو
+        
             printf("[Alert #%d] Line %d: %s", alert_count, line_number, line);
         }
     }
