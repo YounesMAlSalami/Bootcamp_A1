@@ -2,7 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 
-// تعريف مستويات الأمان
+
 typedef enum
 {
     WEAK,
@@ -19,11 +19,11 @@ void checkPassword(const char password[])
 
     int length = strlen(password);
 
-    // 1. طباعة طول كلمة المرور (حسب معايير القبول)
+  
     printf("\n--- Password Report ---\n");
     printf("Password Length: %d characters\n", length);
 
-    // 2. فحص الحروف باستخدام حلقة تكرار ودوال ctype.h
+  
     for (int i = 0; i < length; i++)
     {
         unsigned char ch = password[i];
@@ -38,7 +38,7 @@ void checkPassword(const char password[])
             symbol = 1;
     }
 
-    // 3. تحديد وعرض حالة الشروط المتبقية (حسب معايير القبول)
+    
     printf("- Uppercase letters : %s\n", upper ? "Found" : "Missing");
     printf("- Lowercase letters : %s\n", lower ? "Found" : "Missing");
     printf("- Numbers           : %s\n", digit ? "Found" : "Missing");
@@ -46,7 +46,7 @@ void checkPassword(const char password[])
 
     int score = upper + lower + digit + symbol;
 
-    // 4. تقييم النتيجة النهائية (التأكد من أن الطول لا يقل عن 8 وتحقق الشروط)
+    
     PasswordStrength result;
     if (length >= 8 && score == 4)
         result = STRONG;
@@ -55,7 +55,7 @@ void checkPassword(const char password[])
     else
         result = WEAK;
 
-    // طباعة النتيجة النهائية للمستخدم
+
     printf("Final Evaluation: ");
     if (result == STRONG)
         printf("Your Password is Strong\n");
@@ -72,7 +72,7 @@ int main(void)
     char password[100];
 
     printf("Enter your password: ");
-    // تقييد حجم المدخلات لتجنب تجاوز الذاكرة (Buffer Overflow)
+
     scanf("%99s", password);
 
     checkPassword(password);
