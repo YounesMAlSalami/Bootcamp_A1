@@ -28,9 +28,14 @@
    gcc password_checker.c -o password_checker
 2. تشغيل البرنامج:
    على Linux / macOS / PowerShell:
+   ```bash
+   ./password_checker
 
-./password_checker
+
 
 على Command Prompt (CMD) في Windows:
 
-password_checker.exe
+```bash
+   password_checker.exe
+
+
