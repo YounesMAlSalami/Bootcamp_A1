@@ -17,9 +17,11 @@
 | رقم التكليف / المهمة | اسم المهمة / المشروع | التقنية المستخدمة | الحالة | تاريخ الإنجاز |
 | :--- | :--- | :--- | :---: | :---: |
 | **Assignment 1** | Password Strength Checker | C (Strings, Ctype.h) | ✅ تم الإنجاز | المرحلة التأسيسية |
-| **Assignment 2** | Hexadecimal Viewer | C (Binary Files, I/O) | ✅ تم الإنجاز | المرحلة التأسيسية |
-| **Assignment 3** | *(مخصص للتكليف القادم)* | - | ⏳ قيد الانتظار | - |
+| **Assignment 3** | Library vs Framework (Technical Guide) | Software Architecture & Concepts | ✅ تم الإنجاز |
+| **Assignment 3** | Hexadecimal Viewer | C (Binary Files, I/O) | ✅ تم الإنجاز | المرحلة التأسيسية |
 | **Assignment 4** | SOC Log File Parser | C (File Parsing, Case-Insensitive Search) | ✅ تم الإنجاز | المرحلة التأسيسية |
+| **Assignment 5** | *(مخصص للتكليف القادم)* | - | ⏳ قيد الانتظار | - |
+
 
 ---
 
