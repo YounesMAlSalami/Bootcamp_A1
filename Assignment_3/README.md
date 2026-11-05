@@ -25,16 +25,13 @@
    ```bash
    gcc hex_viewer.c -o hex_viewer
 
-```
  2. **تشغيل البرنامج وفحص أي ملف:**
    * على **Linux / macOS / PowerShell**:
      ```bash
      ./hex_viewer filename.txt
      
-     ```
    * على **Command Prompt (CMD) في Windows**:
      ```cmd
      hex_viewer.exe filename.txt
      
-     ```
 
