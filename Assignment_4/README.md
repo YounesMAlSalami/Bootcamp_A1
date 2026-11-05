@@ -23,14 +23,14 @@
 1. **ترجمة الكود (Compilation):**
    افتح موجه الأوامر في مجلد المشروع، ثم اكتب الأمر التالي:
    ```bash
-   gcc log_parser.c -o log_parser
+   gcc log_parser_soc.c -o log_parser_soc
 
  2. **تشغيل البرنامج (مثال للبحث عن كلمة failed):**
    * على **Linux / macOS / PowerShell**:
      ```bash
-     ./log_parser server.log failed
+     ./log_parser_soc server.log failed
      
    * على **Command Prompt (CMD) في ويندوز**:
      ```cmd
-     log_parser.exe server.log failed
+     log_parser_soc.exe server.log failed
      
