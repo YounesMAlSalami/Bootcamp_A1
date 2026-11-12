@@ -22,16 +22,16 @@ A basic TCP banner-grabbing utility that connects to a specified host and port, 
 ## Project structure
 ```text
 Assignment_06/
-└── banner_grabbing_tool.py
+└── banner_grabber_tool.py
 ```
 
 ## Run
 ```bash
-python banner_grabbing_tool.py
+python banner_grabber_tool.py
 ```
 Windows alternative:
 ```powershell
-py banner_grabbing_tool.py
+py banner_grabber_tool.py
 ```
 Follow the program prompts and use only a host and port you are authorized to test.
 
