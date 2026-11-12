@@ -36,6 +36,8 @@
 - **لغات البرمجة:** C, Python, PHP, JavaScript.
 - **تقنيات الويب:** HTML, CSS, JavaScript DOM, HTTP REST API.
 - **الأمن السيبراني:**
+  - Password Strength Checker
+  - Hexadecimal Viewer
   - TCP Port Scanning
   - Banner Grabbing
   - Log Analysis
