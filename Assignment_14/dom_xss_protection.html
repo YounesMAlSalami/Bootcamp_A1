@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التفاعل مع DOM والوقاية من DOM-Based XSS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 16px;
+            font-family: Tahoma, Arial, sans-serif;
+            background: #f3f5f8;
+            color: #202938;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 5px 22px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #173b66;
+            font-size: 25px;
+        }
+
+        .description {
+            color: #526174;
+        }
+
+        label {
+            display: block;
+            margin: 22px 0 8px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 105px;
+            padding: 12px;
+            border: 1px solid #bdc7d3;
+            border-radius: 8px;
+            font: 15px Consolas, monospace;
+            direction: ltr;
+            text-align: left;
+            resize: vertical;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        button {
+            border: 0;
+            border-radius: 7px;
+            padding: 11px 18px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:focus-visible {
+            outline: 3px solid #f0c34e;
+            outline-offset: 2px;
+        }
+
+        .unsafe-button {
+            background: #b83232;
+        }
+
+        .safe-button {
+            background: #18794e;
+        }
+
+        .sample-button {
+            background: #315d91;
+        }
+
+        .clear-button {
+            background: #596579;
+        }
+
+        .output {
+            min-height: 110px;
+            margin-top: 14px;
+            padding: 16px;
+            border: 1px solid #cbd3dd;
+            border-radius: 8px;
+            background: #fafbfd;
+            overflow-wrap: anywhere;
+        }
+
+        .output-title {
+            margin: 25px 0 0;
+            font-size: 18px;
+        }
+
+        .note {
+            margin-top: 22px;
+            padding: 12px 15px;
+            background: #fff7df;
+            border-right: 4px solid #d99b17;
+            border-radius: 6px;
+            color: #624a13;
+        }
+
+        code {
+            direction: ltr;
+            unicode-bidi: embed;
+            font-family: Consolas, monospace;
+        }
+
+        .result-label {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h1>أداة التفاعل مع DOM والوقاية من DOM-Based XSS</h1>
+        <p class="description">
+            أدخل نصاً أو كود HTML، ثم قارن بين طريقة العرض غير الآمنة باستخدام
+            <code>innerHTML</code> وطريقة العرض الآمنة باستخدام <code>textContent</code>.
+        </p>
+
+        <label for="userInput">مدخل المستخدم:</label>
+        <textarea id="userInput" placeholder="اكتب نصاً أو جرّب الحمولة الاختبارية..."></textarea>
+
+        <div class="buttons">
+            <button type="button" class="unsafe-button" id="unsafeButton">عرض غير آمن</button>
+            <button type="button" class="safe-button" id="safeButton">عرض آمن</button>
+            <button type="button" class="sample-button" id="sampleButton">إدراج Payload تجريبي</button>
+            <button type="button" class="clear-button" id="clearButton">مسح</button>
+        </div>
+
+        <h2 class="output-title">نتيجة العرض:</h2>
+        <section class="output" id="output" aria-live="polite">
+            ستظهر النتيجة هنا.
+        </section>
+
+        <div class="note">
+            تنبيه: زر «عرض غير آمن» ينفذ المدخلات كـ HTML لأغراض تعليمية فقط.
+            لا تستخدم <code>innerHTML</code> مع بيانات غير موثوقة في التطبيقات الحقيقية.
+            جرّب هذه الأداة محلياً ولا ترفعها إلى موقع عام.
+        </div>
+    </main>
+
+    <script>
+        const userInput = document.getElementById("userInput");
+        const output = document.getElementById("output");
+        const unsafeButton = document.getElementById("unsafeButton");
+        const safeButton = document.getElementById("safeButton");
+        const sampleButton = document.getElementById("sampleButton");
+        const clearButton = document.getElementById("clearButton");
+
+        unsafeButton.addEventListener("click", function () {
+            const value = userInput.value;
+            output.innerHTML = value;
+        });
+
+        safeButton.addEventListener("click", function () {
+            const value = userInput.value;
+            output.textContent = value;
+        });
+
+        sampleButton.addEventListener("click", function () {
+            userInput.value = '<img src=x onerror=alert(1)>';
+            output.textContent = "تم إدراج الحمولة التجريبية. اختر طريقة العرض للمقارنة.";
+        });
+
+        clearButton.addEventListener("click", function () {
+            userInput.value = "";
+            output.textContent = "ستظهر النتيجة هنا.";
+        });
+    </script>
+</body>
+</html>
