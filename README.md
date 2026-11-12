@@ -29,9 +29,7 @@
 | **Assignment 13** | Secure Session & Cookie Management | PHP (Sessions, Cookies, HttpOnly, SameSite) | ✅ تم الإنجاز | المرحلة التأسيسية |
 | **Assignment 14** | DOM Interaction & DOM-Based XSS Prevention | HTML, CSS, JavaScript (DOM, innerHTML, textContent) | ✅ تم الإنجاز | المرحلة التأسيسية |
 
-## 🛠️ التقنيات وأدوات العمل:
-* لغات البرمجة: **C** (وقريباً Python, JavaScript, PHP ضمن خطة المخيم).
-* بيئة العمل: **Windows (Terminal / PowerShell)** والمترجم **GCC**.
+🛠️ التقنيات وأدوات العمل لغات البرمجة: C, Python, PHP, JavaScript. تقنيات الويب: HTML, CSS, JavaScript DOM, HTTP REST API. الأمن السيبراني: TCP Port Scanning, Banner Grabbing, Log Analysis, File Integrity Monitoring (FIM), SQL Injection Defense, Secure File Upload, Session & Cookie Security, DOM-Based XSS Prevention. بيئة العمل: Windows, Terminal, PowerShell, GCC, Python, PHP (XAMPP). أدوات إدارة المشاريع: Git & GitHub. 
 
----
-*إعداد المتدرب: يونس السلامي*
+إعداد المتدرب: يونس السلامي
+
