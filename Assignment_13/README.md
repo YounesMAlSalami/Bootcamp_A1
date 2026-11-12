@@ -1,6 +1,6 @@
 # Assignment 13 — Secure Session and Cookie Management
-*Author:* Younes Al-Salami
-*Track:* Cybersecurity Programming Bootcamp | Language: PHP
+**Author:** Younes Al-Salami  
+**Track:** Cybersecurity Programming Bootcamp | **Languages:** PHP
 
 ## Overview
 Demonstrates secure PHP session-cookie configuration, session ID regeneration during a simulated login, and a comparison between an HttpOnly session cookie and a JavaScript-readable demonstration cookie.
@@ -19,13 +19,24 @@ PHP and XAMPP (Apache). The project uses PHP sessions and does not require a dat
 
 ## Run
 From the project directory:
+```text
 `C:\xampp\php\php.exe -S localhost:8003`
+```
 
 Opne Browser then visit:
+```text
 `http://localhost/Assignment/Assignment_13_Session_Cookie_Security/`
+```
 
 Another way:
-Copy this folder to `C:\xampp\htdocs\Assignment\Assignment_13_Session_Cookie_Security`, start Apache, then visit `http://localhost/Assignment/Assignment_13_Session_Cookie_Security/`.
+Copy this folder to 
+```text
+C:\xampp\htdocs\Assignment\Assignment_13_Session_Cookie_Security 
+```
+start Apache, then visit 
+```text
+http://localhost/Assignment/Assignment_13_Session_Cookie_Security/
+```
 
 ## Demo Login
 Username: `younes`
@@ -43,4 +54,4 @@ Password: `P@ssw0rd123`
 The demo credentials are hardcoded for this educational assignment only. The intentionally unprotected cookie contains a non-sensitive demonstration value. The Secure attribute is enabled only over HTTPS; local HTTP testing does not set it. Do not deploy this demonstration as a production authentication system.
 
 ## Author
-*Younes Al-Salami* — Cybersecurity Programming Bootcamp
+** *Younes Al-Salami* — Cybersecurity Programming Bootcamp**
