@@ -53,11 +53,11 @@ log_parser_soc.exe server.log failed
 توضح الصور التالية مراحل تنفيذ الأداة ونتائج تحليل ملفات السجلات.
 
 ### 1. ترجمة البرنامج وتشغيله
-![Run Analysis](Assignment_4/log_parser_soc1.png)
+![Run Analysis](log_parser_soc1.png)
 
 ### 2. نتائج تحليل السجلات
 
-![Analysis Logs](Assignment_4/log_parser_soc.png)
+![Analysis Logs](log_parser_soc.png)
 
 
 ## 🧰 التقنيات المستخدمة
