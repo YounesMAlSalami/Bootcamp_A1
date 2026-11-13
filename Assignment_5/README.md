@@ -11,12 +11,14 @@
 
 This project is a multithreaded TCP port scanner. It accepts an IPv4 address or domain name, resolves the target to an IPv4 address, and checks TCP ports from **1 through 1024**.
 
-The scanner uses non-blocking sockets and `select.select()` to monitor connection attempts. A `ThreadPoolExecutor` runs up to 50 port-scanning tasks concurrently. Each scanned port is classified as:
+The scanner uses non-blocking sockets and `select.select()` to monitor connection attempts. A `ThreadPoolExecutor` runs up to 50 port-scanning tasks concurrently.
 
-- **OPEN** — the TCP connection was established.
-- **CLOSED** — the target actively refused the connection.
-- **FILTERED** — the connection attempt timed out or did not complete within the configured timeout.
-- **ERROR** — another socket or operating-system error occurred.
+Each scanned port is classified as:
+
+- **OPEN** — The TCP connection was established.
+- **CLOSED** — The target actively refused the connection.
+- **FILTERED** — The connection attempt timed out or did not complete within the configured timeout.
+- **ERROR** — Another socket or operating-system error occurred.
 
 At the end of the scan, the program displays open ports, counts for each result category, the total number of scanned ports, and elapsed scan time.
 
@@ -46,10 +48,9 @@ The implementation uses Windows socket error codes for several connection outcom
 
 ```text
 Assignment_05/
-└── port_scanner.py
+├── port_scanner.py
+└── port_scanner.png
 ```
-
-Save the supplied Python code as `port_scanner.py`.
 
 ## 5. Configuration
 
@@ -66,11 +67,11 @@ The effective `TIMEOUT` is 5 seconds because the later assignment `TIMEOUT = 5` 
 
 ## 6. How the Program Works
 
-### 6.1 Read and validate the target
+### 6.1 Read and Validate the Target
 
 The program asks the user to enter a target IP address or domain name. An empty input is rejected.
 
-### 6.2 Resolve the domain name
+### 6.2 Resolve the Domain Name
 
 `resolve_domain()` calls:
 
@@ -85,7 +86,7 @@ socket.getaddrinfo(
 
 It requests an IPv4 TCP address. If DNS resolution fails, it retries once after a one-second delay. If resolution still fails, the scan stops with an error message.
 
-### 6.3 Scan each TCP port
+### 6.3 Scan Each TCP Port
 
 `scan_port()` creates a TCP socket and sets it to non-blocking mode:
 
@@ -100,13 +101,13 @@ It then calls `connect_ex()` to attempt a connection.
 - For a pending connection, `select.select()` waits for the socket to become writable or exceptional.
 - The program then reads `SO_ERROR` to determine whether the connection succeeded or failed.
 
-### 6.4 Run scans concurrently
+### 6.4 Run Scans Concurrently
 
 The program creates a `ThreadPoolExecutor` with up to 50 workers and submits one task for every port in the range 1–1024.
 
 `as_completed()` collects results as individual scans finish. Open ports are printed immediately, while other result categories are counted for the final report.
 
-### 6.5 Display the summary
+### 6.5 Display the Summary
 
 The program calculates elapsed time with `time.perf_counter()` and displays:
 
@@ -168,6 +169,12 @@ The output format is similar to:
 ```
 
 The addresses and results above are illustrative only. Actual results depend on the target, network path, firewall rules, and services listening at scan time.
+
+### Screenshot — Port Scanner Execution
+
+<!-- أضف الصورة port_scanner.png هنا بعد وضعها في المجلد نفسه الذي يحتوي على README.md -->
+
+![Multithreaded TCP Port Scanner](port_scanner.png)
 
 ## 9. Result Interpretation
 
