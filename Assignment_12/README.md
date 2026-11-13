@@ -1,58 +1,196 @@
-# Assignment 12 — Secure File Upload System
+# Assignment 12 — PHP Secure File Upload System
+
 **Author:** Younes Al-Salami  
-**Track:** Cybersecurity Programming Bootcamp | **Language:** PHP  
-**Main file:** `secure_file_upload.php`
+**Track:** Cybersecurity Programming Bootcamp  
+**Programming Language:** PHP  
+**Main File:** `secure_file_upload.php`
 
-## Overview
-A PHP upload handler using Defense-in-Depth. It validates upload status, size, extension, and detected MIME type, then assigns a cryptographically random filename and moves the file to a designated storage directory.
+---
 
-## Requirements
-- PHP 8.x recommended
-- Fileinfo extension enabled
-- XAMPP/Apache or PHP built-in server
-- Writable storage directory
+## 1. Project Overview
 
-## Project structure
+This project implements a secure file upload system using PHP.
+
+The application applies multiple validation techniques to reduce the risk of malicious file uploads. It checks the uploaded file's extension, size, and actual MIME type before accepting it.
+
+It also generates a random filename to avoid trusting filenames supplied by users.
+
+The application demonstrates both a successful upload and the rejection of a file containing PHP code disguised as a JPG image.
+
+## 2. Learning Objectives
+
+- Understand common risks associated with file uploads.
+- Validate uploaded files using PHP.
+- Restrict uploads to permitted file extensions.
+- Check file content using MIME type detection.
+- Enforce a maximum upload size.
+- Generate random filenames.
+- Use `move_uploaded_file()` to store uploaded files.
+- Apply basic upload directory protection.
+
+## 3. Requirements
+
+- PHP 8.x recommended.
+- Fileinfo extension enabled.
+- XAMPP or PHP built-in development server.
+- A modern web browser.
+- Write permissions for the upload directory.
+
+## 4. Project Structure
+
 ```text
 Assignment_12/
+│
 ├── secure_file_upload.php
-└── uploads/  (created by the application)
+├── README.md
+│
+└── uploads/
+    └── Uploaded files are stored here
 ```
 
-## Security controls
-1. Reads the upload through `$_FILES['uploaded_file']`.
-2. Checks the upload error status.
-3. Enforces a 5 MB maximum size.
-4. Uses `pathinfo()` and a strict extension allowlist: JPG, JPEG, PNG, PDF.
-5. Uses `finfo_file()` to inspect actual content MIME type.
-6. Generates a filename with `bin2hex(random_bytes(16))`.
-7. Moves the upload using `move_uploaded_file()`.
-8. Adds an Apache `.htaccess` protection mechanism in the upload directory.
+The `uploads` directory is created by the application if it does not already exist.
 
-## Run with XAMPP
-From the folder containing the PHP file:
+## 5. Security Features
+
+### 5.1. File Size Validation
+
+The application enforces a maximum file size of 5 MB.
+
+### 5.2. Extension Validation
+
+Only the following extensions are permitted:
+
+- JPG
+- JPEG
+- PNG
+- PDF
+
+### 5.3. MIME Type Validation
+
+The application uses PHP's `finfo_file()` to inspect the actual content type of an uploaded file.
+
+This helps prevent an attacker from simply renaming a malicious file with an allowed image extension.
+
+### 5.4. Random Filename Generation
+
+The application generates a random filename using:
+
+```php
+bin2hex(random_bytes(16))
+```
+
+This avoids using the original user-supplied filename as the stored filename.
+
+### 5.5. File Storage
+
+The application uses `move_uploaded_file()` to move validated files into the `uploads` directory.
+
+### 5.6. Upload Directory Protection
+
+An `.htaccess` protection mechanism is included to restrict access or execution of uploaded files when supported by the Apache configuration.
+
+## 6. Running the Project
+
+Open a terminal inside the `Assignment_12` directory and start the PHP development server:
+
 ```powershell
 C:\xampp\php\php.exe -S localhost:8001
 ```
-Open `http://localhost:8001/secure_file_upload.php` and submit a file using the form.
 
-## Recommended tests
-| Test | Expected result |
+Open the following URL in a browser:
+
+```text
+http://localhost:8001/secure_file_upload.php
+```
+
+The Secure File Upload System interface should appear.
+
+## 7. Practical Testing
+
+The following tests were performed using the local PHP development server.
+
+### 7.1. Application Source and Server
+
+The PHP source code defines the allowed file extensions, 5 MB size limit, and upload directory. The local development server was started on port 8001.
+
+![Application Source and Server](secure_file_upload.png)
+
+### 7.2. Malicious File Extension Test
+
+A test file named `test.jpg` was created with PHP code as its content:
+
+```php
+<?php
+echo "This is a PHP file";
+?>
+```
+
+Although the filename uses the `.jpg` extension, its actual content is PHP code.
+
+The application inspected the file content and rejected the upload because the detected MIME type did not match the allowed image type.
+
+![PHP Payload Disguised as JPG](Payload.png)
+
+### 7.3. Rejected Upload Result
+
+Observed application response:
+
+```text
+File content does not match its extension. The file was rejected.
+```
+
+This confirms that the application does not rely only on the filename extension when validating an uploaded file.
+
+![Rejected File Upload](secure_file_upload1.png)
+
+### 7.4. Successful PNG Upload
+
+A valid PNG image was selected and submitted through the upload form.
+
+Observed application response:
+
+```text
+File uploaded successfully.
+```
+
+The application generated a random filename for the uploaded image.
+
+![Successful PNG Upload](secure_file_upload2.png)
+
+## 8. Test Results Summary
+
+| Test Case | Observed Result |
 |---|---|
-| Valid JPG | Accepted |
-| Valid PNG | Accepted |
-| Valid PDF | Accepted |
-| PHP file | Rejected |
-| PHP content renamed to `.jpg` | Rejected by MIME inspection |
-| File larger than 5 MB | Rejected |
+| PHP code disguised as `.jpg` | Rejected |
+| Valid PNG image | Accepted |
+| Random filename generation | Observed |
+| Local PHP server | Started successfully |
 
-For the extension-spoofing test, create a harmless PHP file, rename it to `test.jpg`, and try uploading it in the local lab. The content inspection should reject it.
+The 5 MB limit and PDF/JPG acceptance cases are implemented in the code but are not demonstrated by the supplied screenshots.
 
-## Validation status
-The solution file was prepared for the assignment. End-to-end upload tests on the user's XAMPP installation were not confirmed in the documented validation. Complete the positive and negative tests before submission.
+## 9. Security Considerations and Limitations
 
-## Security considerations and limitations
-MIME inspection is not malware scanning. Production systems should consider scanning, re-encoding images, authentication, quotas, and storing uploads outside the web root. `.htaccess` protection depends on Apache configuration and does not apply to every server. On Windows, configure folder permissions through Windows security settings.
+- MIME type validation is not a complete malware detection mechanism.
+- A production application should consider malware scanning and image re-encoding.
+- Uploaded files should preferably be stored outside the public web root.
+- `.htaccess` protection depends on Apache configuration and does not apply to every web server.
+- File permissions must be configured appropriately.
+- The application should be combined with authentication, authorization, and upload quotas in a production environment.
 
-## Author
-Younes Al-Salami — Cybersecurity Programming Bootcamp
+## 10. Validation Status
+
+The application was opened using the local PHP development server.
+
+The supplied test evidence confirms:
+
+- The upload interface loaded successfully.
+- A PHP file disguised as a JPG image was rejected because its content did not match its extension.
+- A valid PNG image was accepted.
+- A random filename was generated for the accepted upload.
+
+These results demonstrate the effectiveness of combining extension validation with MIME type inspection.
+
+## 11. Author
+
+**Younes Al-Salami**  
+Cybersecurity Programming Bootcamp
