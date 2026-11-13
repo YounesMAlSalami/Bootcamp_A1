@@ -179,7 +179,7 @@ Expected status code: `405 Method Not Allowed`
 
 The response indicates that the requested method is not supported and identifies the allowed methods.
 
-![Unsupported Method Test](rest_api_Unsupported method.png)
+![Unsupported Method Test](rest_api_Unsupported%20method.png)
 
 ### 8.2. Invalid JSON Body
 
@@ -195,7 +195,7 @@ Expected status code: `400 Bad Request`
 
 The API detects the invalid JSON body and returns an error response.
 
-![Malformed JSON Test](rest_api_Malformed JSON.png)
+![Malformed JSON Test](rest_api_Malformed%20JSON.png)
 
 ## 9. API Implementation
 
