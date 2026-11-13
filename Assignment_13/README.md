@@ -25,7 +25,11 @@ C:\xampp\php\php.exe -S localhost:8003
 
 Opne Browser then visit:
 ```text
-http://localhost/Assignment/Assignment_13_Session_Cookie_Security/
+http://localhost:8003/
+```
+OR
+```text
+http://localhost:8003/index.php
 ```
 
 Another way:
