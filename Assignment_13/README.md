@@ -159,7 +159,7 @@ The cookie testing page displays the configuration of both cookies.
 
 It also explains that `HttpOnly` cookies are hidden from JavaScript.
 
-![Cookie Security Test Page](‏‏screenshot53.png)
+![Cookie Security Test Page](screenshot53.png)
 
 ### Test 5 — Invalid Login Attempt
 
