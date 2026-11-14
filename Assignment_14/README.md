@@ -108,7 +108,7 @@ The application provides an interactive input field, rendering controls, and an 
 
 The test payload is processed using `innerHTML`. The browser interprets the injected HTML, causing the `onerror` event handler to execute and display a JavaScript alert.
 
-![Unsafe Display](unsafe%20mode%281%29.png)
+![Unsafe Display](unsafe%20mode.png)
 
 *The screenshot demonstrates JavaScript execution through an injected HTML event handler.*
 
@@ -116,7 +116,7 @@ The test payload is processed using `innerHTML`. The browser interprets the inje
 
 The same payload is processed using `textContent`. Instead of interpreting the input as HTML, the browser displays it as ordinary text.
 
-![Safe Display](safe%20mode%281%29.png)
+![Safe Display](safe%20mode.png)
 
 *The payload is displayed literally, and the JavaScript event handler is not executed.*
 
@@ -126,7 +126,7 @@ The same payload is processed using `textContent`. Instead of interpreting the i
 | :--- | :--- |
 | HTML input is interpreted by the browser. | HTML input is treated as plain text. |
 | Event handlers can execute JavaScript. | Event handlers are not executed. |
-| ![Unsafe Result](unsafe%20mode%281%29.png) | ![Safe Result](safe%20mode%281%29.png) |
+| ![Unsafe Result](unsafe%20mode.png) | ![Safe Result](safe%20mode.png) |
 
 ---
 
