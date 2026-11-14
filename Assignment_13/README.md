@@ -151,7 +151,7 @@ The browser Application panel displays the session cookie and the two demonstrat
 
 The protected cookie has `HttpOnly` enabled and `SameSite=Strict`.
 
-![Cookie Attributes]( __screenshot(52).png)
+![Cookie Attributes](screenshot(52).png)
 
 ### Test 4 — Cookie Security Comparison Page
 
@@ -159,7 +159,7 @@ The cookie testing page displays the configuration of both cookies.
 
 It also explains that `HttpOnly` cookies are hidden from JavaScript.
 
-![Cookie Security Test Page]( __screenshot(53).png)
+![Cookie Security Test Page](screenshot(53).png)
 
 ### Test 5 — Invalid Login Attempt
 
